@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steven Putra Tjhin – Finance | Market Research | Capital Markets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #F4F6F5;
+    --bg-card: #EEF2F0;
+    --green-dark: #0E3621;
+    --green-mid: #1B5E3B;
+    --green-accent: #2A7A52;
+    --green-light: #4A9A72;
+    --green-pale: #E8F0EC;
+    --text-main: #0E3621;
+    --text-body: #2C4A3A;
+    --text-muted: #5A7A6A;
+    --border: #D4E4DA;
+    --border-strong: #1B5E3B;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 60px;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--green-mid);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-mid); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 42%;
+    background: var(--green-pale);
+    clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; width: 100%; }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--green-accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    color: var(--green-dark);
+  }
+  .hero-name span { color: var(--green-mid); }
+  .hero-tagline {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green-mid);
+    color: var(--white);
+    padding: 13px 28px;
+    border: none; border-radius: 4px;
+    font-weight: 600; font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--green-mid);
+    padding: 12px 28px;
+    border: 1.5px solid var(--green-mid);
+    border-radius: 4px;
+    font-weight: 500; font-size: 14px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { background: var(--green-pale); }
+
+  .hero-stats {
+    display: flex; flex-direction: column; gap: 20px;
+    position: relative; z-index: 1;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 26px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(14,54,33,0.06);
+  }
+  .stat-card:hover { border-color: var(--green-mid); box-shadow: 0 4px 16px rgba(27,94,59,0.12); }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--green-mid);
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    letter-spacing: 0.2px;
+    line-height: 1.5;
+  }
+
+  /* SECTION BASE */
+  section { padding: 88px 60px; max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--green-accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 48px;
+    color: var(--green-dark);
+  }
+  .divider {
+    width: 48px; height: 2px;
+    background: var(--green-mid);
+    margin-bottom: 48px;
+  }
+
+  /* EXPERTISE GRID */
+  .expertise-bg { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .expertise-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(14,54,33,0.05);
+  }
+  .expertise-card:hover { border-color: var(--green-mid); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(27,94,59,0.1); }
+  .expertise-icon {
+    width: 40px; height: 40px;
+    background: var(--green-pale);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .expertise-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--green-dark);
+  }
+  .expertise-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* RESUME TIMELINE */
+  .resume-bg { background: var(--white); }
+  .resume-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .resume-col h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    color: var(--green-accent);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item {
+    position: relative;
+    padding-left: 24px;
+    padding-bottom: 28px;
+    border-left: 1.5px solid var(--border);
+  }
+  .timeline-item:last-child { border-left-color: transparent; }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -5px; top: 6px;
+    width: 9px; height: 9px;
+    background: var(--green-mid);
+    border-radius: 50%;
+  }
+  .timeline-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--green-accent);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .timeline-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--green-dark);
+    margin-bottom: 3px;
+  }
+  .timeline-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .timeline-bullets {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    list-style: none;
+    padding: 0;
+  }
+  .timeline-bullets li { position: relative; padding-left: 14px; margin-bottom: 5px; }
+  .timeline-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--green-mid); }
+
+  /* ORGANISASI */
+  .org-bg { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .org-grid { display: flex; flex-direction: column; gap: 20px; }
+  .org-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    box-shadow: 0 1px 3px rgba(14,54,33,0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .org-card:hover { border-color: var(--green-mid); box-shadow: 0 4px 16px rgba(27,94,59,0.1); }
+  .org-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .org-title { font-weight: 600; font-size: 15px; color: var(--green-dark); }
+  .org-org { font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+  .org-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--green-accent);
+    white-space: nowrap;
+    margin-left: 16px;
+    padding-top: 2px;
+  }
+  .org-bullets { font-size: 13px; color: var(--text-muted); line-height: 1.65; list-style: none; padding: 0; }
+  .org-bullets li { position: relative; padding-left: 14px; margin-bottom: 5px; }
+  .org-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--green-mid); }
+
+  /* SKILLS */
+  .skills-bg { background: var(--green-dark); }
+  .skills-bg .section-eyebrow { color: var(--green-light); }
+  .skills-bg .section-title { color: var(--white); }
+  .skills-bg .divider { background: var(--green-light); }
+  .skills-wrapper { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .skill-group h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--green-light);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  /* CONTACT */
+  .contact-section { background: var(--white); border-top: 1.5px solid var(--border); text-align: center; }
+  .contact-sub { color: var(--text-muted); font-size: 15px; margin-bottom: 36px; }
+  .contact-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none; font-size: 14px;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--green-mid); }
+  .contact-link-icon { color: var(--green-mid); font-size: 16px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 28px 60px;
+    background: var(--green-dark);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero::before { display: none; }
+    section { padding: 60px 24px; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .resume-cols { grid-template-columns: 1fr; gap: 40px; }
+    .skills-wrapper { grid-template-columns: 1fr; }
+    footer { padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Steven P. Tjhin</div>
+  <ul class="nav-links">
+    <li><a href="#expertise">Keahlian</a></li>
+    <li><a href="#resume">Pengalaman</a></li>
+    <li><a href="#organisasi">Organisasi</a></li>
+    <li><a href="#skills">Kemampuan</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Personal Portfolio</div>
+      <h1 class="hero-name">Steven Putra<br><span>Tjhin</span></h1>
+      <p class="hero-tagline">
+        Mahasiswa Manajemen dengan fokus pada analisis pasar modal, riset keuangan, dan kepemimpinan organisasi. Berpengalaman dalam market research, fundamental analysis, serta pengelolaan kegiatan investasi.
+      </p>
+      <div class="hero-cta">
+        <a href="#resume" class="btn-primary">Lihat Pengalaman</a>
+        <a href="#contact" class="btn-outline">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">2023</div>
+        <div class="stat-label">Bergabung Universitas Kristen Krida Wacana — Sarjana Manajemen</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">MNC</div>
+        <div class="stat-label">Intern Market Research — Laporan Kinerja & Analisis Fundamental Emiten</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">KSPM</div>
+        <div class="stat-label">Sekretaris Kelompok Studi Pasar Modal — Kemitraan strategis & edukasi investasi</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERTISE -->
+<div class="expertise-bg">
+<section id="expertise">
+  <div class="section-eyebrow">Bidang Keahlian</div>
+  <h2 class="section-title">Areas of Expertise</h2>
+  <div class="divider"></div>
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="expertise-icon">📊</div>
+      <h3>Market Research</h3>
+      <p>Membuat laporan kinerja keuangan Emiten secara terstruktur dan menyediakan insight awal mengenai performa saham serta tren industri.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📈</div>
+      <h3>Fundamental Analysis</h3>
+      <p>Menyusun analisis fundamental berdasarkan laporan keuangan dan data historis perusahaan untuk mendukung keputusan investasi.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🏦</div>
+      <h3>Pasar Modal</h3>
+      <p>Menganalisis pergerakan saham secara konsisten setiap bulan menggunakan pendekatan analisis teknikal untuk diskusi investasi internal.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🤝</div>
+      <h3>Kepemimpinan & Event</h3>
+      <p>Berpengalaman sebagai Ketua Pelaksana kegiatan skala besar, mengelola kepanitiaan dari perencanaan hingga pelaksanaan dengan tim lintas divisi.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">🗣️</div>
+      <h3>Public Speaking</h3>
+      <p>Aktif dalam sosialisasi dan edukasi keuangan kepada audiens eksternal, memperkenalkan program literasi pasar modal.</p>
+    </div>
+    <div class="expertise-card">
+      <div class="expertise-icon">📋</div>
+      <h3>Administrasi & Korespondensi</h3>
+      <p>Mengelola seluruh aspek korespondensi, penjadwalan, dan dokumentasi rapat organisasi sebagai Sekretaris KSPM UKRIDA.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- RESUME -->
+<div class="resume-bg">
+<section id="resume">
+  <div class="section-eyebrow">Riwayat</div>
+  <h2 class="section-title">Pengalaman & Pendidikan</h2>
+  <div class="divider"></div>
+  <div class="resume-cols">
+    <div class="resume-col">
+      <h3>Pengalaman Kerja</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Sep 2025 – Sekarang</div>
+          <div class="timeline-title">MNC Sekuritas Intern</div>
+          <div class="timeline-sub">Market Research Division</div>
+          <ul class="timeline-bullets">
+            <li>Membuat laporan kinerja keuangan beberapa Emiten sebagai dasar evaluasi perusahaan</li>
+            <li>Menyusun analisis fundamental dari laporan keuangan & data historis</li>
+            <li>Menyediakan insight performa saham dan tren industri</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Juni – Agustus 2023</div>
+          <div class="timeline-title">Teknisi Ponsel</div>
+          <div class="timeline-sub">Service Center</div>
+          <ul class="timeline-bullets">
+            <li>Berinteraksi langsung dengan pelanggan untuk konsultasi teknis</li>
+            <li>Merekomendasikan solusi perbaikan yang paling efektif dan efisien</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="resume-col">
+      <h3>Pendidikan</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023 – Sekarang</div>
+          <div class="timeline-title">Sarjana Manajemen</div>
+          <div class="timeline-sub">Universitas Kristen Krida Wacana (UKRIDA)</div>
+          <p class="timeline-desc">Aktif dalam kegiatan organisasi dan kompetisi pasar modal.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2020 – 2023</div>
+          <div class="timeline-title">Sekolah Menengah Atas</div>
+          <div class="timeline-sub">SMA Kristen Immanuel</div>
+          <ul class="timeline-bullets">
+            <li>KSB Braindicator – Kompetisi Siswa dalam Pelajaran Geografi</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2017 – 2020</div>
+          <div class="timeline-title">Sekolah Menengah</div>
+          <div class="timeline-sub">SMA Kristen Immanuel</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2011 – 2017</div>
+          <div class="timeline-title">Sekolah Dasar</div>
+          <div class="timeline-sub">SMA Kristen Immanuel — "Kasih Bangsa dan Kristen Immanuel"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ORGANISASI -->
+<div class="org-bg">
+<section id="organisasi">
+  <div class="section-eyebrow">Keterlibatan</div>
+  <h2 class="section-title">Pengalaman Organisasi</h2>
+  <div class="divider"></div>
+  <div class="org-grid">
+    <div class="org-card">
+      <div class="org-header">
+        <div>
+          <div class="org-title">Sekretaris — KSPM (Kelompok Studi Pasar Modal)</div>
+          <div class="org-org">Universitas Kristen Krida Wacana (UKRIDA)</div>
+        </div>
+        <div class="org-date">Mar 2025 – Sekarang</div>
+      </div>
+      <ul class="org-bullets">
+        <li>Mengelola korespondensi, penjadwalan, dan dokumentasi rapat organisasi</li>
+        <li>Membangun kemitraan strategis dengan PT MNC Sekuritas untuk program edukasi pasar modal 2025</li>
+        <li>Menganalisis pergerakan saham secara konsisten dengan pendekatan teknikal untuk diskusi internal</li>
+        <li>Melaksanakan sosialisasi untuk meningkatkan literasi keuangan kepada audiens eksternal</li>
+      </ul>
+    </div>
+    <div class="org-card">
+      <div class="org-header">
+        <div>
+          <div class="org-title">Panitia Kegiatan Kompetisi Pasar Modal — UNVEST 2025</div>
+          <div class="org-org">UKRIDA</div>
+        </div>
+        <div class="org-date">2025</div>
+      </div>
+      <ul class="org-bullets">
+        <li>Menjalin komunikasi dan koordinasi kegiatan UNVEST agar kerja sama berjalan lancar</li>
+        <li>Mengawasi dan memastikan seluruh rangkaian kegiatan berjalan sesuai rencana</li>
+        <li>Memberikan penilaian dalam sesi perlombaan (Juri) sesuai kriteria yang ditentukan</li>
+      </ul>
+    </div>
+    <div class="org-card">
+      <div class="org-header">
+        <div>
+          <div class="org-title">Ketua Pelaksana — Roadshow Asean Investment Challenge 2025</div>
+          <div class="org-org">CGS International</div>
+        </div>
+        <div class="org-date">2025</div>
+      </div>
+      <ul class="org-bullets">
+        <li>Mengelola seluruh proses kegiatan CGS dari awal hingga akhir sesuai tujuan</li>
+        <li>Menyusun dan menetapkan struktur kepanitiaan bersama pengurus inti</li>
+        <li>Mengarahkan setiap divisi agar bekerja sesuai tugas dan tanggung jawabnya</li>
+        <li>Memastikan seluruh rangkaian kegiatan berjalan sesuai rencana dan tujuan</li>
+      </ul>
+    </div>
+    <div class="org-card">
+      <div class="org-header">
+        <div>
+          <div class="org-title">Ketua Pelaksana — Sekolah Pasar Modal: Generasi Cerdas Investasi 2025</div>
+          <div class="org-org">UKRIDA / GCI</div>
+        </div>
+        <div class="org-date">Nov 2025</div>
+      </div>
+      <ul class="org-bullet
